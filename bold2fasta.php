@@ -52,7 +52,7 @@ foreach ($header as $index => $name) {
 }
 
 // Required fields
-$required = array("nuc", "processid", "identification", "bin_uri", "country/ocean");
+$required = array("nuc", "processid", "identification", "bin_uri", "country/ocean", "province/state");
 
 // Check required columns exist
 foreach ($required as $field) {
@@ -82,9 +82,10 @@ while (($row = fgetcsv($handle, 0, "\t")) !== false) {
     $identification = trim($row[$columns["identification"]]);
     $bin_uri = trim($row[$columns["bin_uri"]]);
     $country = trim($row[$columns["country/ocean"]]);
+    $state = trim($row[$columns["province/state"]]);
 
     // Build FASTA header
-    $headerLine = ">" . $identification . " (" . $processid . " " . $bin_uri . " " . $country . ")";
+    $headerLine = ">" . $identification . " (" . $processid . " " . $bin_uri . " " . $state . " " . $country . ")";
 
     // Write to file
     fwrite($outHandle, $headerLine . "\n");
