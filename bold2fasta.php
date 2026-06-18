@@ -8,7 +8,7 @@ if (php_sapi_name() !== 'cli') {
 
 // Check arguments
 if ($argc < 3) {
-    fwrite(STDERR, "Usage: php tsv_to_fasta.php input.tsv output.fasta\n");
+    fwrite(STDERR, "Usage: php bold2fasta.php input.tsv output.fasta\n");
     exit(1);
 }
 
